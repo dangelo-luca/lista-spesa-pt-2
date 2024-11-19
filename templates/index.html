@@ -10,6 +10,9 @@
         <ul>
             {% for elemento in lista_spesa %}<!--utilizziamo il for per stampare tutti gli elemtenti presenti nella lista-->
                 <li>{{ elemento }}</li>
+                <form action="/rimuovi/{{ loop.index0 }}" method="post" style="display:inline;">
+                    <button type="submit">Rimuovi</button>
+                </form>
             {% endfor %}
         </ul>
     {% else %}
