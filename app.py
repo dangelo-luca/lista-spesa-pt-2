@@ -1,7 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 #inizializza l'app Flask
 
 app = Flask(__name__)
+
+lista_spesa = ["pippo"]
 
 #rotta principale
 @app.route('/')

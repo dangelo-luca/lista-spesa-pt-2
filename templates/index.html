@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>Per ora funziona tutto!</h1>
+    <h1>La tua lista della spesa</h1>
+    {% if lista_spesa %} <!--utilizziamo la condizione  per verificare se nella lista è presente qualche elemento oppure e vuota -->
+        <ul>
+            {% for elemento in lista_spesa %}<!--utilizziamo il for per stampare tutti gli elemtenti presenti nella lista-->
+                <li>{{ elemento }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>La lista è vuota.</p>
+    {% endif %}
 </body>
 </html>
