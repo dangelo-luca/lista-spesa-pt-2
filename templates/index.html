@@ -8,25 +8,39 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <style>
-    h1{
-        color:blue;
+    body{
+        background-color: burlywood;
+    }
+    .card-title{
+        color: blue;
         text-align: center;
         font-size: 50px;
+    }
+
+    .card{
+        width: 70%;
+        margin-left: auto; 
+        margin-right: auto; 
+        margin-top: 15%; 
+        border: 2px solid black;
     }
 
 
 </style>
 <body>
-    <h1>La tua lista della spesa</h1>
-
-    <form action="/aggiungi" method="post" class="inserimento">
-        <div class="input-group mb-3">
-            <input type="text" name="elemento" class="form-control" placeholder="Aggiungi un elemento" style="border: 1px solid black;">
-            <button class="btn btn-success" type="submit">Aggiungi</button> 
-          </div>
-    </form>
-
-    {% if lista_spesa %} <!--utilizziamo la condizione  per verificare se nella lista è presente qualche elemento oppure e vuota -->
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">La tua lista della spesa</h5>
+          <p class="card-text">
+            <form action="/aggiungi" method="post" class="inserimento">
+                <div class="input-group mb-3">
+                    <input type="text" name="elemento" class="form-control" placeholder="Aggiungi un elemento" style="border: 1px solid black;">
+                    <button class="btn btn-success" type="submit">Aggiungi</button> 
+                  </div>
+            </form>
+          </p>
+          <p class="card-text">
+            {% if lista_spesa %} <!--utilizziamo la condizione  per verificare se nella lista è presente qualche elemento oppure e vuota -->
         <ul>
             {% for elemento in lista_spesa %}<!--utilizziamo il for per stampare tutti gli elemtenti presenti nella lista-->
                 <li style="font-size: 40px; margin-left: 10px;">{{ elemento }}
@@ -39,10 +53,20 @@
     {% else %}
         <p>La lista è vuota.</p>
     {% endif %}
+          </p>
+          <p class="card-text">
+            <form action="/svuota" method="post">
+                <button class="btn btn-danger" type="submit">Svuota</button>
+            </form>
+          </p>
+        </div>
+      </div>
 
-    <form action="/svuota" method="post">
-        <button class="btn btn-danger" type="submit">Svuota</button>
-    </form>
+    
+
+    
+
+    
 
     
     
